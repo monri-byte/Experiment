@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddExperiment from './components/AddExperiment';
 import Filter from './components/Filter';
+import CountExp from './components/CountExp';
 import './App.css';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
   return (
     <div className="App">
       <h1>Учёт экспериментов</h1>
+      <CountExp experiments={experiments} />
       <AddExperiment onAddExperiment={addExperiment} />
       <Filter 
         selectedStatus={selectedStatus} 
