@@ -13,6 +13,16 @@ function App() {
     setExperiments(updatedExperiments);
   };
   
+  const deleteExperiment = (id) => {
+    const updatedExperiments = [];
+    for (let i = 0; i < experiments.length; i++) {
+      if (experiments[i].id !== id) {
+        updatedExperiments.push(experiments[i]);
+      }
+    }
+    setExperiments(updatedExperiments);
+  };
+  
   const getStatusClass = (status) => {
     if (status === 'План') return 'status-plan';
     if (status === 'В процессе') return 'status-progress';
@@ -33,6 +43,12 @@ function App() {
           <div className="experiments-grid">
             {experiments.map((experiment) => (
               <div key={experiment.id} className="experiment-card">
+                <button 
+                  className="delete-btn"
+                  onClick={() => deleteExperiment(experiment.id)}
+                >
+                  Удалить
+                </button>
                 <div className="experiment-name">{experiment.name}</div>
                 <div className={`experiment-status ${getStatusClass(experiment.status)}`}>
                   {experiment.status}

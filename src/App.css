@@ -43,11 +43,30 @@ h1 {
   border-radius: 8px;
   padding: 20px;
   transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
 }
 
 .experiment-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
 }
 
 .experiment-name {
@@ -56,6 +75,7 @@ h1 {
   color: #333;
   margin-bottom: 12px;
   word-break: break-word;
+  padding-right: 60px;
 }
 
 .experiment-status {
