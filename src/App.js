@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import AddExperiment from './components/AddExperiment';
+import Filter from './components/Filter';
 import './App.css';
 
 function App() {
   const [experiments, setExperiments] = useState([]);
+  const [selectedStatus, setSelectedStatus] = useState('Все');
   
   const addExperiment = (newExperiment) => {
     const updatedExperiments = [newExperiment];
@@ -23,6 +25,19 @@ function App() {
     setExperiments(updatedExperiments);
   };
   
+  const getFilteredExperiments = () => {
+    if (selectedStatus === 'Все') {
+      return experiments;
+    }
+    const filtered = [];
+    for (let i = 0; i < experiments.length; i++) {
+      if (experiments[i].status === selectedStatus) {
+        filtered.push(experiments[i]);
+      }
+    }
+    return filtered;
+  };
+  
   const getStatusClass = (status) => {
     if (status === 'План') return 'status-plan';
     if (status === 'В процессе') return 'status-progress';
@@ -30,18 +45,24 @@ function App() {
     return '';
   };
   
+  const filteredExperiments = getFilteredExperiments();
+  
   return (
     <div className="App">
       <h1>Учёт экспериментов</h1>
       <AddExperiment onAddExperiment={addExperiment} />
+      <Filter 
+        selectedStatus={selectedStatus} 
+        onStatusChange={setSelectedStatus}
+      />
       
       <div className="experiments-section">
         <h2>Список экспериментов</h2>
-        {experiments.length === 0 ? (
+        {filteredExperiments.length === 0 ? (
           <p className="empty-message">Нет добавленных экспериментов</p>
         ) : (
           <div className="experiments-grid">
-            {experiments.map((experiment) => (
+            {filteredExperiments.map((experiment) => (
               <div key={experiment.id} className="experiment-card">
                 <button 
                   className="delete-btn"
