@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddExperiment from './components/AddExperiment';
 import Filter from './components/Filter';
 import CountExp from './components/CountExp';
@@ -7,6 +7,20 @@ import './App.css';
 function App() {
   const [experiments, setExperiments] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState('Все');
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  useEffect(() => {
+    const savedExperiments = localStorage.getItem('experiments');
+    if (savedExperiments) {
+      const parsedExperiments = JSON.parse(savedExperiments);
+      setExperiments(parsedExperiments);
+    }
+    setIsInitialLoad(false);
+  }, []);
+  useEffect(() => {
+    if (!isInitialLoad) {
+      localStorage.setItem('experiments', JSON.stringify(experiments));
+    }
+  }, [experiments, isInitialLoad]);
   
   const addExperiment = (newExperiment) => {
     const updatedExperiments = [newExperiment];
