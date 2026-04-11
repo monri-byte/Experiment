@@ -6,7 +6,7 @@
 }
 
 .add-experiment h2 {
-  color: #555;
+  color: gray;
   margin-bottom: 20px;
   font-size: 1.2rem;
 }
@@ -18,7 +18,7 @@
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  color: #666;
+  color: gray;
   font-weight: 500;
 }
 
@@ -26,7 +26,7 @@
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid gray;
   border-radius: 4px;
   font-size: 16px;
 }
@@ -34,11 +34,11 @@
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: blue;
 }
 
 .submit-btn {
-  background-color: #667eea;
+  background-color: blue;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -49,5 +49,5 @@
 }
 
 .submit-btn:hover {
-  background-color: #5a67d8;
+  background-color: blue;
 }
