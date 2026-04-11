@@ -1,5 +1,5 @@
 .filter-section {
-  background: #f9f9f9;
+  background: white;
   padding: 15px 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -10,13 +10,13 @@
 
 .filter-label {
   font-weight: 500;
-  color: #555;
+  color: black;
   font-size: 14px;
 }
 
 .filter-select {
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid gray;
   border-radius: 4px;
   font-size: 14px;
   background: white;
@@ -26,5 +26,5 @@
 
 .filter-select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: blue;
 }
